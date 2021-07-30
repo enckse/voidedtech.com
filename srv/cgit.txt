@@ -1,4 +1,0 @@
-enckse cgit
-===
-
-Mirror of my personal, public git repositories.
