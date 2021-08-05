@@ -71,6 +71,7 @@ img
 .books td, .books th {
   border: 1px solid #ddd;
   padding: 8px;
+  width: 50%;
 }
 
 .books tr:nth-child(even){background-color: #f2f2f2;}
