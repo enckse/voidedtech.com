@@ -1,0 +1,96 @@
+.entry
+{
+    font-size:18px;
+    height: 50px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto ;
+    border: 1px solid black;
+    border-radius: 10px;
+    border-style: none none solid solid;
+    padding-left: 10px;
+}
+
+.page-entry
+{
+    font-size:18px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto ;
+}
+
+.details
+{
+    margin-left: auto;
+}
+
+.imgdetail {
+    float: left;
+    height: 95%;
+    width: 15%;
+    padding-right: 30px;
+}
+
+a, a:visited, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: black;
+}
+
+.link {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+img {
+    max-width: 95%;
+    max-height: 95%;
+}
+
+body
+{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#main
+{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding:5px 5px 5px 5px;
+}
+
+#site {
+    width: 75%;
+    margin-left: auto ;
+    margin-right: auto ;
+}
+
+.about {
+    float: right;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.pager {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.header-text
+{
+    font-size:24px; 
+    font-family: Verdana, Geneva, sans-serif;
+    padding-left: 20px;
+    padding-top: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-text
+{
+    font-size: 14px;
+    width:90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 20px 20px 20px;
+    clear: both;
+}
