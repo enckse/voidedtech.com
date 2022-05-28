@@ -75,6 +75,7 @@ thead {
 
 .books td, .books th {
   padding: 8px;
+  font-size: 12px;
   width: 50%;
 }
 
