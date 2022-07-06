@@ -9,6 +9,10 @@ jobs:
       image: alpine:latest
     steps:
       - uses: actions/checkout@v2
+      - name: "update repo"
+        run: "apk update"
+      - name: "setup deps"
+        run: "apk add make bash rsync"
       - name: "setup crossstitch"
         run: "cd crossstitch && mkdir -p resources/2020 && mkdir -p resources/2021 && touch resources/2020/test.png && touch resources/2021/test2.png && touch resources/2021/test3.png"
       - name: "build crossstitch"
