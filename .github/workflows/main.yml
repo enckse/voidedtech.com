@@ -1,0 +1,17 @@
+name: "build"
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: alpine:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: "setup crossstitch"
+        run: "cd crossstitch && mkdir -p resources/2020 && mkdir -p resources/2021 && touch resources/2020/test.png && touch resources/2021/test2.png"
+      - name: "build crossstitch"
+        run: "cd crossstitch && make && make install"
+      - name: "build voidedtech.com"
+        run: "cd voidedtech && make && make install"
