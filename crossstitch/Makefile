@@ -7,4 +7,4 @@ build:
 
 install:
 	mkdir -p $(DESTDIR)
-	mv $(WEBROOT)/* $(DESTDIR)
+	rsync -avci $(WEBROOT) $(DESTDIR)
