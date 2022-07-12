@@ -3,7 +3,7 @@ WEBROOT   := www
 DESTDIR   := bin/
 
 build:
-	./build $(RESOURCES) $(WEBROOT)
+	./build.sh $(RESOURCES) $(WEBROOT)
 
 install:
 	mkdir -p $(DESTDIR)
