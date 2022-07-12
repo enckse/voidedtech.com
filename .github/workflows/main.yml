@@ -17,5 +17,7 @@ jobs:
         run: "cd subsites/crafts && mkdir -p resources/2020 && mkdir -p resources/2021 && touch resources/2020/test.png && touch resources/2021/test2.png && touch resources/2021/test3.png"
       - name: "build crafts"
         run: "cd subsites/crafts && make && make install"
+      - name: "build books"
+        run: "cd subsites/books && make && make install"
       - name: "build voidedtech.com"
-        run: "cd voidedtech && make && make install"
+        run: "make && make install"
