@@ -2,7 +2,6 @@
 {
     margin-left: auto;
     margin-right: auto ;
-    font-style: italic;
     border: 1px solid black;
     border-radius: 10px;
     border-style: none none solid solid;
@@ -54,6 +53,7 @@ body
 a, a:visited, a:hover, a:focus, a:active {
     text-decoration: none;
     color: black;
+    font-style: italic;
 }
 
 table tr td {
