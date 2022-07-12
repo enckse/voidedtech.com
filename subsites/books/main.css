@@ -1,0 +1,28 @@
+table tr td {
+  color: black
+}
+
+table tr td:last-of-type {
+  border: none;
+}
+
+thead {
+    border-bottom: 1px black solid;
+}
+
+.books {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.books td, .books th {
+  padding: 8px;
+  font-size: 12px;
+  width: 50%;
+}
+
+.books th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+}
