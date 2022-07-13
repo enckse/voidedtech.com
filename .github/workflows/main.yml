@@ -13,6 +13,8 @@ jobs:
         run: "apk update"
       - name: "setup deps"
         run: "apk add make bash rsync"
+      - name: "configure"
+        run: "./configure"
       - name: "setup crafts"
         run: "cd subsites/crafts && mkdir -p resources/2020 && mkdir -p resources/2021 && touch resources/2020/test.png && touch resources/2021/test2.png && touch resources/2021/test3.png"
       - name: "build crafts"

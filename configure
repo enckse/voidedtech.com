@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+_makefile() {
+    local d
+    d=$(date +%Y-%m-%d)
+    echo 'DESTDIR   := bin/'
+    echo 'WEBROOT   := www/'
+    echo 'RESOURCES := resources/'
+    echo
+    echo 'build:'
+    case "$1" in
+        "main" | "books")
+            echo '  mkdir -p $(WEBROOT)'
+            echo '  cp *.css $(WEBROOT)'
+            echo '  cp *.html $(WEBROOT)'
+            if [[ "$1" == "main" ]]; then
+                echo "  sed -i 's/{DATE}/$d/g' \$(WEBROOT)index.html"
+            else
+                echo '  cp ../../*.css $(WEBROOT)'
+            fi
+        ;;
+        "crafts")
+            echo '  ./build.sh $(RESOURCES) $(WEBROOT)'
+        ;;
+    esac
+    echo
+    echo "install:"
+    echo '  mkdir -p $(DESTDIR)'
+    echo '  rsync -iacv $(WEBROOT) $(DESTDIR)'
+}
+
+_makefile_cmd() {
+    _makefile "$1" | sed 's/^  /\t/g'
+}
+
+_subsites() {
+    local f
+    for f in $(ls subsites); do
+        _makefile_cmd $f > subsites/$f/Makefile
+    done
+}
+
+_makefile_cmd main > Makefile
+_subsites
