@@ -72,5 +72,3 @@ vim /etc/apk/repositories
 http://<host>:9999/alpine/v3.14/main
 http://<host>:9999/alpine/v3.14/community
 ```
-
-<sub><sup>Updated: 2021-09-07</sup></sub>

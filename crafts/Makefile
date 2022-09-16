@@ -1,7 +1,3 @@
-all: build
-
-build:
+release:
 	./build.sh
 	mdbook build
-
-release: build

@@ -45,5 +45,3 @@ func main() {
 	}
 }
 ```
-
-<sub><sup>Updated: 2021-09-07</sup></sub>

@@ -37,5 +37,3 @@ to get a network connection during init:
                                                       ^ autoconf is N/A
                                                             ^ DNS
 ```
-
-<sub><sup>Updated: 2021-10-21</sup></sub>

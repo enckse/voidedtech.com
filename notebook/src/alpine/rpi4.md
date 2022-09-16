@@ -12,5 +12,3 @@ generally, get alpine up and running
 
 _This should get everything installed, after first boot one should edit fstab and
 make /boot/boot a bind mount to boot itself (FAT32 doesn't allow symlinking in this case)_
-
-<sub><sup>Updated: 2021-10-21</sup></sub>

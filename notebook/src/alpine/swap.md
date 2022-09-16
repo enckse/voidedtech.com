@@ -20,5 +20,3 @@ enable swap
 ```
 rc-update add swap
 ```
-
-<sub><sup>Updated: 2021-10-21</sup></sub>

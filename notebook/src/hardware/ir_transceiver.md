@@ -138,5 +138,3 @@ begin remote
     end raw_codes
 end remote
 ```
-
-<sub><sup>Updated: 2022-08-03</sup></sub>

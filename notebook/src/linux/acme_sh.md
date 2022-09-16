@@ -47,5 +47,3 @@ Which map to `nginx` directives:
 | `--key-file` | `ssl_certificate_key` |
 | `--cert-file` | `ssl_trusted_certificate` |
 | `--fullchain-file` | `ssl_certificate` |
-
-<sub><sup>Updated: 2021-10-21</sup></sub>

@@ -37,5 +37,3 @@ To make a new notebook template
 - Place the image in `/usr/share/remarkable/templates/`
 - Edit `/usr/share/remarkable/templates/templates.json` and define the template (may want to back this up first)
 - Restart the UI: `systemctl restart xochitl`
-
-<sub><sup>Updated: 2022-08-18</sup></sub>

@@ -44,5 +44,3 @@ passing a kernel/initram to a process to start as a VM)
 It is easier to use a "cloud ready" image that is a disk image that can be
 booted directly (and not booting an installation media/iso). Then one can set
 the kernel parameter `root=/dev/path2` as necessary to boot the rootfs object properly.
-
-<sub><sup>Updated: 2021-10-09</sup></sub>

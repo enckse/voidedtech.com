@@ -20,5 +20,3 @@ scan keys for git forwarding/relaying/mirroring/etc.
 ```
 ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 ```
-
-<sub><sup>Updated: 2021-12-13</sup></sub>

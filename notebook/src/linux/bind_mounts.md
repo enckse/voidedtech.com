@@ -13,5 +13,3 @@ mount --bind /mnt/data/var /var
 ```
 
 _These can also be placed into `/etc/fstab`_
-
-<sub><sup>Updated: 2021-08-24</sup></sub>

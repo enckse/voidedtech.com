@@ -27,5 +27,3 @@ May want to install `alpine-conf` to run things like timezone setup (e.g. `setup
 ## Troubleshooting
 
 Mounts like `C:\` are in `/mnt/c` but also `\\wsl$` can access WSL from the Windows host
-
-<sub><sup>Updated: 2022-06-25</sup></sub>

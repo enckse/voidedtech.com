@@ -14,6 +14,3 @@ To "export" the current configuration:
 4. Poke around in the mounted area, mainly in the `active/` directory
 5. Make sure to `umount /mnt/vdrive`
 6. Close Power User Mode (same key press as 1)
-
-
-<sub><sup>Updated: 2022-02-27</sup></sub>

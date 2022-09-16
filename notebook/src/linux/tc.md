@@ -40,5 +40,3 @@ tc class add dev $IFB parent 1:1 classid 1:30 htb rate 250mbit
 tc filter add dev $LAN parent 1:0 protocol ip prio 1 u32 match ip src 192.168.1.10/32 flowid 1:20
 tc filter add dev $IFB parent 1:0 protocol ip prio 1 u32 match ip src 10.0.0.0/24 flowid 1:30
 ```
-
-<sub><sup>Updated: 2022-02-28</sup></sub>

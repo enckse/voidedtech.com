@@ -16,5 +16,3 @@ _This does have security implications_
 
 lxc can do more than `directory`-based containers (including image files via
 loop, btrfs, lvm, etc.) during creation.
-
-<sub><sup>Updated: 2021-09-08</sup></sub>

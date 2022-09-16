@@ -21,5 +21,3 @@ Drop `syslinux` and add grub/friends
 apk del syslinux
 apk add grub grub-efi efibootmgr
 ```
-
-<sub><sup>Updated: 2022-02-09</sup></sub>

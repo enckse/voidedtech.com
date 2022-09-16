@@ -45,5 +45,3 @@ hdiutil attach <file.iso> -mountpoint /Volumes/mymount
 # and then
 hdiutil detach /Volumes/mymount
 ```
-
-<sub><sup>Updated: 2021-10-21</sup></sub>
