@@ -1,4 +1,4 @@
-voidedtech.com
+voidedtech
 ===
 
 Website definition/content
