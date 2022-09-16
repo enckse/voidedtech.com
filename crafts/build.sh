@@ -1,6 +1,6 @@
 #!/bin/bash
 SRC="src/"
-INDEX="$SRC/INDEX.md"
+INDEX="$SRC/SITEINDEX.md"
 
 _format() {
     echo "- [$1]($2)"
@@ -37,7 +37,7 @@ _summary() {
         echo
         echo "<sub><sup>Updated: $(date +%Y-%m-%d)</sup></sub>"
     } >> $INDEX
-    _format "Index" "./INDEX.md"
+    _format "Index" "./SITEINDEX.md"
 }
 
 _summary > ${SRC}SUMMARY.md
