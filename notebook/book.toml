@@ -1,0 +1,10 @@
+[book]
+authors = []
+language = "en"
+multilingual = false
+src = "src"
+
+[output.html]
+git-repository-url = "https://github.com/enckse/voidedtech.com"
+default-theme = "light"
+

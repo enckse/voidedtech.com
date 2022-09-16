@@ -1,0 +1,18 @@
+{
+    "Places": [
+        {"Name": "GVSC/TARDEC/Department of the Army/DoD", "From": "2015.07", "To": "present" },
+        {"Name": "Lakeside Software", "From":  "2012.03", "To": "2015.07"},
+        {"Name": "Infor (Global Solutions)", "From": "2009.10", "To": "2012.03" },
+        {"Name": "Omron (Automotive Electronics)", "From": "2007.04", "To": "2009.06" },
+        {"Name": "Kettering University", "From": "2005", "To": "2009" }
+    ],
+    "Links": [
+	    {"Href": "crafts/", "Display": "Crafts"},
+	    {"Href": "https://github.com/enckse", "Display": "Github"},
+	    {"Href": "https://goodreads.com/enckse", "Display": "Goodreads"},
+	    {"Href": "https://instagram.com/seanenck", "Display": "Instagram"},
+	    {"Href": "https://www.linkedin.com/in/sean-enck-22420314", "Display": "Linkedin"},
+	    {"Href": "notebook/", "Display": "Notebook"}
+    ],
+    "Mail": "enckse@gmail.com"
+}

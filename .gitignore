@@ -1,0 +1,5 @@
+bin/
+book/
+**/src/SUMMARY.md
+crafts/src/**/20*.md
+crafts/src/INDEX.md
