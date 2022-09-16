@@ -15,16 +15,16 @@ jobs:
       - name: "setup deps"
         run: "apk add make bash go mdbook@testing git"
       - name: "clone"
-        run: "git clone https://github.com/enckse/voidedtech.com"
+        run: "git clone https://github.com/enckse/voidedtech"
       - name: "checkout"
-        run: "git -C voidedtech.com checkout $GITHUB_SHA"
+        run: "git -C voidedtech checkout $GITHUB_SHA"
       - name: "build dist"
-        run: "cd voidedtech.com && make release"
+        run: "cd voidedtech && make release"
       - name: "archive artifacts"
         uses: actions/upload-artifact@master
         with:
           name: dist
-          path: voidedtech.com/dist
+          path: voidedtech/dist
   publish:
     needs: build
     runs-on: ubuntu-latest

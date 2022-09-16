@@ -1,5 +1,5 @@
-bin/
 book/
+dist/
 **/src/SUMMARY.md
 crafts/src/**/20*.md
 crafts/src/INDEX.md

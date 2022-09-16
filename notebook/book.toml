@@ -5,6 +5,6 @@ multilingual = false
 src = "src"
 
 [output.html]
-git-repository-url = "https://github.com/enckse/voidedtech.com"
+git-repository-url = "https://github.com/enckse/voidedtech"
 default-theme = "light"
 

@@ -1,4 +1,4 @@
-DIST    := dist/
+DIST := dist/
 
 all: build
 
@@ -11,6 +11,7 @@ clean:
 	mkdir -p $(DIST)
 
 main:
+	mkdir -p $(DIST)
 	go run www/*.go -date "$(shell date +%Y-%m-%d)" -target $(DIST) -config www/site.json
 
 subsites:
