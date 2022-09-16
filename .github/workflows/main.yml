@@ -1,0 +1,48 @@
+name: "deploy"
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: alpine:latest
+    steps:
+      - name: "setup repo"
+        run: "echo '@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories"
+      - name: "update repo"
+        run: "apk update"
+      - name: "setup deps"
+        run: "apk add make bash go mdbook@testing git"
+      - name: "clone"
+        run: "git clone https://github.com/enckse/voidedtech.com"
+      - name: "checkout"
+        run: "git -C voidedtech.com checkout $GITHUB_SHA"
+      - name: "build dist"
+        run: "cd voidedtech.com && make release"
+      - name: "archive artifacts"
+        uses: actions/upload-artifact@master
+        with:
+          name: dist
+          path: voidedtech.com/dist
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: Publish
+    steps:
+      - name: "download artifacts"
+        uses: actions/download-artifact@master
+        with:
+          name: dist
+          path: dist
+      - name: "publish"
+        uses: cloudflare/pages-action@1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCT_ID }}
+          projectName: voidedtech
+          directory: dist/
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
