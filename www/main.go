@@ -52,14 +52,11 @@ func createHostData(date, file string) (hostData, error) {
 	if err != nil {
 		return hostData{}, err
 	}
-	jFile := SiteData{}
-	if err := json.Unmarshal(d, &jFile); err != nil {
+	obj := SiteData{}
+	if err := json.Unmarshal(d, &obj); err != nil {
 		return hostData{}, err
 	}
-	obj := &SiteData{Date: date, IsPublic: true, Title: "voidedtech", Header: "About me:"}
-	obj.Links = jFile.Links
-	obj.Places = jFile.Places
-	obj.Mail = jFile.Mail
+	obj.Date = date
 	tmpl, err := template.New("t").Parse(indexHTML)
 	if err != nil {
 		return hostData{}, err

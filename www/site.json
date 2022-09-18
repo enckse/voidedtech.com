@@ -14,5 +14,8 @@
 	    {"Href": "https://www.linkedin.com/in/sean-enck-22420314", "Display": "Linkedin"},
 	    {"Href": "notebook/", "Display": "Notebook"}
     ],
-    "Mail": "enckse@gmail.com"
+    "Mail": "enckse@gmail.com",
+    "IsPublic": true,
+    "Title": "voidedtech.com",
+    "Header": "About me"
 }
