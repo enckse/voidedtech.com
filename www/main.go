@@ -10,6 +10,7 @@ import (
 	"html/template"
 	"os"
 	"path/filepath"
+	"time"
 )
 
 var (
@@ -47,7 +48,7 @@ type (
 	}
 )
 
-func createHostData(date, file string) (hostData, error) {
+func createHostData(file string) (hostData, error) {
 	d, err := os.ReadFile(file)
 	if err != nil {
 		return hostData{}, err
@@ -56,7 +57,7 @@ func createHostData(date, file string) (hostData, error) {
 	if err := json.Unmarshal(d, &obj); err != nil {
 		return hostData{}, err
 	}
-	obj.Date = date
+	obj.Date = time.Now().Format("2006-01-02")
 	tmpl, err := template.New("t").Parse(indexHTML)
 	if err != nil {
 		return hostData{}, err
@@ -71,9 +72,8 @@ func createHostData(date, file string) (hostData, error) {
 func main() {
 	config := flag.String("config", "", "site json definition")
 	target := flag.String("target", "", "target output")
-	date := flag.String("date", "", "setup date")
 	flag.Parse()
-	data, err := createHostData(*date, *config)
+	data, err := createHostData(*config)
 	if err != nil {
 		die("unable to create host data", err)
 	}

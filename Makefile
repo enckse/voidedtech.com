@@ -12,7 +12,7 @@ clean:
 
 main:
 	mkdir -p $(DIST)
-	go run www/main.go -date "$(shell date +%Y-%m-%d)" -target $(DIST) -config www/site.json
+	go run www/main.go -target $(DIST) -config www/site.json
 
 subsites:
 	cd notebook && make release
