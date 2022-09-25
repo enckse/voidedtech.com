@@ -33,10 +33,6 @@ _summary() {
     done
     sort -o $INDEX $INDEX
     sed -i '1 i\# Index\n' $INDEX
-    {
-        echo
-        echo "<sub><sup>Updated: $(date +%Y-%m-%d)</sup></sub>"
-    } >> $INDEX
     _format "Index" "./SITEINDEX.md"
 }
 
