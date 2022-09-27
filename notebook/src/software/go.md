@@ -19,3 +19,10 @@ if err != nil {
 pprof.StartCPUProfile(f)
 defer pprof.StopCPUProfile()
 ```
+
+Then run
+```
+go tool pprof cpu.prof
+```
+
+To interrogate the resulting output file
