@@ -9,11 +9,11 @@ jobs:
       image: alpine:latest
     steps:
       - name: "setup repo"
-        run: "echo '@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories"
+        run: "echo '@edge https://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories"
       - name: "update repo"
         run: "apk update"
       - name: "setup deps"
-        run: "apk add make bash go mdbook@testing git"
+        run: "apk add make bash go mdbook@edge git"
       - name: "clone"
         run: "git clone https://github.com/enckse/voidedtech"
       - name: "checkout"
