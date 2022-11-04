@@ -14,7 +14,6 @@
             <a href="{{ $value.Href }}"><div class="entry">{{ $value.Display }}</div></a>
         {{ end }}
         </div>
-        {{ if $.IsPublic }}
         <div class="footer-text"><hr />
             <div class="footer-small">
                 <p>You may also know me from:</p>
@@ -29,7 +28,6 @@
                 Updated: {{ $.Date }}
             </div>
         </div>
-        {{ end }}
     </div>
 </body>
 </html>
