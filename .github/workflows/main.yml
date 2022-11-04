@@ -31,7 +31,7 @@ jobs:
     permissions:
       contents: read
       deployments: write
-    name: Publish
+    name: publish
     steps:
       - name: "download artifacts"
         uses: actions/download-artifact@v3
