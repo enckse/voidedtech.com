@@ -21,7 +21,7 @@ jobs:
       - name: "build dist"
         run: "cd voidedtech && make release"
       - name: "archive artifacts"
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v3
         with:
           name: dist
           path: voidedtech/dist
@@ -34,7 +34,7 @@ jobs:
     name: Publish
     steps:
       - name: "download artifacts"
-        uses: actions/download-artifact@master
+        uses: actions/download-artifact@v3
         with:
           name: dist
           path: dist
