@@ -1,6 +1,8 @@
 DIST := dist/
 SUBS := notebook crafts
 
+.PHONY: $(SUBS)
+
 all: build
 
 build: $(TARGET)
