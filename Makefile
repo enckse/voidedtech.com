@@ -1,4 +1,5 @@
 DIST := dist/
+SUBS := notebook crafts
 
 all: build
 
@@ -14,8 +15,8 @@ main:
 	mkdir -p $(DIST)
 	go run www/main.go -target $(DIST) -config www/site.json
 
-subsites:
-	cd notebook && make release
-	cd crafts && make release
-	cp -r notebook/book $(DIST)notebook	
-	cp -r crafts/book $(DIST)crafts
+subsites: $(SUBS)
+
+$(SUBS):
+	cd $@ && make release
+	cp -r $@/book $(DIST)$@
