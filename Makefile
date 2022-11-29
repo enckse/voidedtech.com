@@ -15,7 +15,7 @@ clean:
 
 main:
 	mkdir -p $(DIST)
-	go run www/main.go -target $(DIST) -config www/links.csv -sites "$(SUBS)"
+	go run www/main.go -target $(DIST) -sites "$(SUBS)"
 
 subsites: $(SUBS)
 

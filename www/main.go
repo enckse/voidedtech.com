@@ -4,7 +4,6 @@ package main
 import (
 	"bytes"
 	_ "embed"
-	"encoding/csv"
 	"errors"
 	"flag"
 	"fmt"
@@ -21,6 +20,10 @@ var (
 	indexHTML string
 	//go:embed main.css
 	mainCSS []byte
+	linkSet = []string{newRecord("https://github.com/enckse", "Github"),
+		newRecord("https://goodreads.com/enckse", "Goodreads"),
+		newRecord("https://instagram.com/seanenck", "Instagram"),
+		newRecord("https://www.linkedin.com/in/sean-enck-22420314", "LinkedIn")}
 )
 
 const (
@@ -44,28 +47,8 @@ func newRecord(href, disp string) string {
 	return fmt.Sprintf("%s%s%s", href, delimiter, disp)
 }
 
-func build(file, sub, dest string) error {
-	f, err := os.Open(file)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-	obj := SiteData{}
-	r := csv.NewReader(f)
-	records, err := r.ReadAll()
-	if err != nil {
-		return err
-	}
-	var sorted []string
-	for idx, record := range records {
-		if idx == 0 {
-			continue
-		}
-		if len(record) != 2 {
-			return errors.New("invalid record found")
-		}
-		sorted = append(sorted, newRecord(record[0], record[1]))
-	}
+func build(sub, dest string) error {
+	sorted := linkSet
 	for _, s := range strings.Split(sub, " ") {
 		l := len(strings.TrimSpace(s))
 		switch l {
@@ -87,6 +70,7 @@ func build(file, sub, dest string) error {
 		l.Display = record[1]
 		links = append(links, l)
 	}
+	obj := SiteData{}
 	obj.Date = time.Now().Format("2006-01-02")
 	obj.Links = links
 	tmpl, err := template.New("t").Parse(indexHTML)
@@ -107,11 +91,10 @@ func build(file, sub, dest string) error {
 }
 
 func main() {
-	config := flag.String("config", "", "site json definition")
 	target := flag.String("target", "", "target output")
 	subsites := flag.String("sites", "", "subsites")
 	flag.Parse()
-	if err := build(*config, *subsites, *target); err != nil {
+	if err := build(*subsites, *target); err != nil {
 		fmt.Printf("build failed: %v", err)
 		os.Exit(1)
 	}
