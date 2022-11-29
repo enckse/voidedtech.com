@@ -38,27 +38,23 @@ type (
 		Href    string
 		Display string
 	}
-	hostData struct {
-		mainIndex []byte
-		mainCSS   []byte
-	}
 )
 
 func newRecord(href, disp string) string {
 	return fmt.Sprintf("%s%s%s", href, delimiter, disp)
 }
 
-func createHostData(file, sub string) (hostData, error) {
+func build(file, sub, dest string) error {
 	f, err := os.Open(file)
 	if err != nil {
-		return hostData{}, err
+		return err
 	}
 	defer f.Close()
 	obj := SiteData{}
 	r := csv.NewReader(f)
 	records, err := r.ReadAll()
 	if err != nil {
-		return hostData{}, err
+		return err
 	}
 	var sorted []string
 	for idx, record := range records {
@@ -66,7 +62,7 @@ func createHostData(file, sub string) (hostData, error) {
 			continue
 		}
 		if len(record) != 2 {
-			return hostData{}, errors.New("invalid record found")
+			return errors.New("invalid record found")
 		}
 		sorted = append(sorted, newRecord(record[0], record[1]))
 	}
@@ -76,7 +72,7 @@ func createHostData(file, sub string) (hostData, error) {
 		case 0:
 			continue
 		case 1:
-			return hostData{}, errors.New("invalid subsite")
+			return errors.New("invalid subsite")
 		}
 		title := s[1:]
 		title = fmt.Sprintf("%s%s", strings.ToUpper(string(s[0])), title)
@@ -95,13 +91,19 @@ func createHostData(file, sub string) (hostData, error) {
 	obj.Links = links
 	tmpl, err := template.New("t").Parse(indexHTML)
 	if err != nil {
-		return hostData{}, err
+		return err
 	}
 	var buf bytes.Buffer
 	if err := tmpl.Execute(&buf, obj); err != nil {
-		return hostData{}, err
+		return err
 	}
-	return hostData{mainIndex: buf.Bytes(), mainCSS: mainCSS}, nil
+	if err := os.WriteFile(filepath.Join(dest, "index.html"), buf.Bytes(), 0644); err != nil {
+		return err
+	}
+	if err := os.WriteFile(filepath.Join(dest, "main.css"), mainCSS, 0644); err != nil {
+		return err
+	}
+	return nil
 }
 
 func main() {
@@ -109,20 +111,8 @@ func main() {
 	target := flag.String("target", "", "target output")
 	subsites := flag.String("sites", "", "subsites")
 	flag.Parse()
-	data, err := createHostData(*config, *subsites)
-	if err != nil {
-		die("unable to create host data", err)
+	if err := build(*config, *subsites, *target); err != nil {
+		fmt.Printf("build failed: %v", err)
+		os.Exit(1)
 	}
-	dest := *target
-	if err := os.WriteFile(filepath.Join(dest, "index.html"), data.mainIndex, 0644); err != nil {
-		die("failed to write index", err)
-	}
-	if err := os.WriteFile(filepath.Join(dest, "main.css"), data.mainCSS, 0644); err != nil {
-		die("failed to write css", err)
-	}
-}
-
-func die(message string, err error) {
-	fmt.Printf("%s: %v", message, err)
-	os.Exit(1)
 }
