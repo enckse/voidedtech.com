@@ -112,7 +112,7 @@ func genFeed(dest string) error {
 		Description: "various updates from voidedtech",
 		Created:     now,
 	}
-	output, err := exec.Command("git", "-C", "notebook", "log", "-n", "25", "--format=%ai %f").Output()
+	output, err := exec.Command("git", "log", "-n", "25", "--format=%ai %f", "notebook").Output()
 	if err != nil {
 		return err
 	}
