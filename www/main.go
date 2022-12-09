@@ -9,13 +9,10 @@ import (
 	"fmt"
 	"html/template"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"sort"
 	"strings"
 	"time"
-
-	"github.com/gorilla/feeds"
 )
 
 var (
@@ -31,7 +28,6 @@ var (
 
 const (
 	delimiter = ","
-	rootURL   = "https://voidedtech.com"
 )
 
 type (
@@ -91,7 +87,7 @@ func build(sub, dest string) error {
 	if err := os.WriteFile(filepath.Join(dest, "main.css"), mainCSS, 0644); err != nil {
 		return err
 	}
-	return genFeed(dest)
+	return nil
 }
 
 func main() {
@@ -102,46 +98,4 @@ func main() {
 		fmt.Printf("build failed: %v", err)
 		os.Exit(1)
 	}
-}
-
-func genFeed(dest string) error {
-	now := time.Now()
-	feed := &feeds.Feed{
-		Title:       "voidedtech.com updates",
-		Link:        &feeds.Link{Href: rootURL},
-		Description: "various updates from voidedtech",
-		Created:     now,
-	}
-	output, err := exec.Command("git", "log", "-n", "25", "--format=%ai %f").Output()
-	if err != nil {
-		return err
-	}
-	for _, e := range strings.Split(string(output), "\n") {
-		line := strings.TrimSpace(e)
-		if line == "" {
-			continue
-		}
-		parts := strings.Split(line, " ")
-		if len(parts) < 4 {
-			return errors.New("invalid log entry from git")
-		}
-		dt, err := time.Parse("2006-01-02 15:04:05 -0700", strings.Join(parts[0:3], " "))
-		if err != nil {
-			return err
-		}
-		title := parts[3]
-		feed.Items = append(feed.Items, &feeds.Item{
-			Title:       title,
-			Description: title,
-			Created:     dt,
-			Link:        &feeds.Link{Href: rootURL},
-		})
-	}
-
-	rss, err := feed.ToRss()
-	if err != nil {
-		return err
-	}
-
-	return os.WriteFile(filepath.Join(dest, "rss.xml"), []byte(rss), 0644)
 }
