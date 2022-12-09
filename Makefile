@@ -1,4 +1,5 @@
 DIST := dist/
+RSS  := $(DIST)rss/
 SUBS := notebook crafts
 
 .PHONY: $(SUBS)
@@ -14,8 +15,8 @@ clean:
 	mkdir -p $(DIST)
 
 main:
-	mkdir -p $(DIST)
-	go run www/main.go -target $(DIST) -sites "$(SUBS)"
+	mkdir -p $(RSS)
+	go run www/main.go -rss $(RSS) -target $(DIST) -sites "$(SUBS)"
 
 subsites: $(SUBS)
 

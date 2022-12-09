@@ -51,7 +51,7 @@ func newRecord(href, disp string) string {
 	return fmt.Sprintf("%s%s%s", href, delimiter, disp)
 }
 
-func build(sub, dest string) error {
+func build(sub, dest, rss string) error {
 	sorted := linkSet
 	for _, s := range strings.Split(sub, " ") {
 		l := len(strings.TrimSpace(s))
@@ -91,14 +91,15 @@ func build(sub, dest string) error {
 	if err := os.WriteFile(filepath.Join(dest, "main.css"), mainCSS, 0644); err != nil {
 		return err
 	}
-	return genFeed(dest)
+	return genFeed(rss)
 }
 
 func main() {
 	target := flag.String("target", "", "target output")
 	subsites := flag.String("sites", "", "subsites")
+	rss := flag.String("rss", "", "rss target dir")
 	flag.Parse()
-	if err := build(*subsites, *target); err != nil {
+	if err := build(*subsites, *target, *rss); err != nil {
 		fmt.Printf("build failed: %v", err)
 		os.Exit(1)
 	}
@@ -143,5 +144,5 @@ func genFeed(dest string) error {
 		return err
 	}
 
-	return os.WriteFile(filepath.Join(dest, "rss-notebook.xml"), []byte(rss), 0644)
+	return os.WriteFile(filepath.Join(dest, "notebook.xml"), []byte(rss), 0644)
 }
