@@ -122,7 +122,7 @@ func genFeed(dest, site string) error {
 		Description: fmt.Sprintf("changes/updates from %s", site),
 		Created:     now,
 	}
-	output, err := exec.Command("git", "log", "-n", "25", "--format=%ai %f", site).Output()
+	output, err := exec.Command("git", "log", "-n", "25", "--format=%ai %f %H", site).Output()
 	if err != nil {
 		return err
 	}
@@ -132,7 +132,7 @@ func genFeed(dest, site string) error {
 			continue
 		}
 		parts := strings.Split(line, " ")
-		if len(parts) < 4 {
+		if len(parts) < 5 {
 			return errors.New("invalid log entry from git")
 		}
 		dt, err := time.Parse("2006-01-02 15:04:05 -0700", strings.Join(parts[0:3], " "))
@@ -144,7 +144,7 @@ func genFeed(dest, site string) error {
 			Title:       title,
 			Description: title,
 			Created:     dt,
-			Link:        &feeds.Link{Href: subURL},
+			Link:        &feeds.Link{Href: fmt.Sprintf("https://github.com/enckse/voidedtech/commit/%s", parts[4])},
 		})
 	}
 
