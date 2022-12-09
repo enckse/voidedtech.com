@@ -112,7 +112,7 @@ func genFeed(dest string) error {
 		Description: "various updates from voidedtech",
 		Created:     now,
 	}
-	output, err := exec.Command("git", "log", "-n", "25", "--format=%ai %f").Output()
+	output, err := exec.Command("git", "-C", "notebook", "log", "-n", "25", "--format=%ai %f").Output()
 	if err != nil {
 		return err
 	}
@@ -143,5 +143,5 @@ func genFeed(dest string) error {
 		return err
 	}
 
-	return os.WriteFile(filepath.Join(dest, "rss.xml"), []byte(rss), 0644)
+	return os.WriteFile(filepath.Join(dest, "rss-notebook.xml"), []byte(rss), 0644)
 }
