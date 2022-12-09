@@ -11,3 +11,5 @@ As a software engineer I am utilizing some of my knowledge to build tools (e.g. 
 but, of note, cross-stitch patterns are a prime candidate for [reverse engineering](https://en.wikipedia.org/wiki/Reverse_engineering).
 If you find a completed pattern/image (and the size is reasonable)
 you can create a pattern if it is not available for purchase, download, etc.
+
+RSS feed for crafting updates is [here](https://voidedtech.com/rss/crafts.xml)

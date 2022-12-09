@@ -31,7 +31,7 @@ var (
 
 const (
 	delimiter = ","
-	rootURL   = "https://voidedtech.com"
+	rootURL   = "https://voidedtech.com/%s"
 )
 
 type (
@@ -53,6 +53,7 @@ func newRecord(href, disp string) string {
 
 func build(sub, dest, rss string) error {
 	sorted := linkSet
+	var sites []string
 	for _, s := range strings.Split(sub, " ") {
 		l := len(strings.TrimSpace(s))
 		switch l {
@@ -64,6 +65,7 @@ func build(sub, dest, rss string) error {
 		title := s[1:]
 		title = fmt.Sprintf("%s%s", strings.ToUpper(string(s[0])), title)
 		sorted = append(sorted, newRecord(s+"/", title))
+		sites = append(sites, s)
 	}
 	sort.Strings(sorted)
 	var links []Link
@@ -91,7 +93,13 @@ func build(sub, dest, rss string) error {
 	if err := os.WriteFile(filepath.Join(dest, "main.css"), mainCSS, 0644); err != nil {
 		return err
 	}
-	return genFeed(rss)
+
+	for _, s := range sites {
+		if err := genFeed(rss, s); err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 func main() {
@@ -105,15 +113,16 @@ func main() {
 	}
 }
 
-func genFeed(dest string) error {
+func genFeed(dest, site string) error {
 	now := time.Now()
+	subURL := fmt.Sprintf(rootURL, site)
 	feed := &feeds.Feed{
-		Title:       "voidedtech.com updates",
-		Link:        &feeds.Link{Href: rootURL},
-		Description: "various updates from voidedtech",
+		Title:       fmt.Sprintf("%s updates", site),
+		Link:        &feeds.Link{Href: subURL},
+		Description: fmt.Sprintf("changes/updates from %s", site),
 		Created:     now,
 	}
-	output, err := exec.Command("git", "log", "-n", "25", "--format=%ai %f", "notebook").Output()
+	output, err := exec.Command("git", "log", "-n", "25", "--format=%ai %f", site).Output()
 	if err != nil {
 		return err
 	}
@@ -135,7 +144,7 @@ func genFeed(dest string) error {
 			Title:       title,
 			Description: title,
 			Created:     dt,
-			Link:        &feeds.Link{Href: rootURL},
+			Link:        &feeds.Link{Href: subURL},
 		})
 	}
 
@@ -144,5 +153,5 @@ func genFeed(dest string) error {
 		return err
 	}
 
-	return os.WriteFile(filepath.Join(dest, "notebook.xml"), []byte(rss), 0644)
+	return os.WriteFile(filepath.Join(dest, fmt.Sprintf("%s.xml", site)), []byte(rss), 0644)
 }
