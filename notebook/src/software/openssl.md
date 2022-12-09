@@ -1,14 +1,17 @@
-OpenSSL
+openssl
 ===
 
-## encrypt/decrypt
+# imap
 
-Doing some basic encryption
-```
-openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -salt -in test -out test.enc
-```
+`openssl` can connect to an imap server and run commands (e.g. fastmail)
 
-and decryption
 ```
-openssl enc -aes-256-cbc -d -md sha512 -pbkdf2 -iter 100000 -salt -in test.enc -out test
+#!/usr/bin/env bash
+{
+  sleep 3
+  echo "a1 LOGIN myemail@example.org myapppassword"
+  sleep 3
+  echo 'a1 LIST "" "*"'
+  sleep 3
+} | openssl s_client -connect imap.fastmail.com:993 -crlf >/dev/null 2>&1
 ```
