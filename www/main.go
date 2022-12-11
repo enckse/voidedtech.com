@@ -4,6 +4,7 @@ package main
 import (
 	"bytes"
 	_ "embed"
+	"encoding/xml"
 	"errors"
 	"flag"
 	"fmt"
@@ -14,8 +15,6 @@ import (
 	"sort"
 	"strings"
 	"time"
-
-	"github.com/gorilla/feeds"
 )
 
 var (
@@ -27,6 +26,7 @@ var (
 		newRecord("https://goodreads.com/enckse", "Goodreads"),
 		newRecord("https://instagram.com/seanenck", "Instagram"),
 		newRecord("https://www.linkedin.com/in/sean-enck-22420314", "LinkedIn")}
+	xmlHeader = []byte(xml.Header[:len(xml.Header)-1])
 )
 
 const (
@@ -44,6 +44,28 @@ type (
 	Link struct {
 		Href    string
 		Display string
+	}
+	// RSS wrapper
+	RSS struct {
+		XMLName          xml.Name `xml:"rss"`
+		Version          string   `xml:"version,attr"`
+		Channel          Feed     `xml:"channel"`
+		ContentNamespace string   `xml:"xmlns:content,attr"`
+	}
+	// Feed is the underlying rss feed
+	Feed struct {
+		Title       string     `xml:"title"`
+		Link        string     `xml:"link"`
+		Description string     `xml:"description"`
+		Created     string     `xml:"pubDate"`
+		Items       []FeedItem `xml:"item"`
+	}
+	// FeedItem is an entry in the rss feed.
+	FeedItem struct {
+		Title       string `xml:"title"`
+		Link        string `xml:"link"`
+		Description string `xml:"description"`
+		Created     string `xml:"pubDate"`
 	}
 )
 
@@ -113,14 +135,18 @@ func main() {
 	}
 }
 
+func newFeedTime(t time.Time) string {
+	return t.Format(time.RFC1123Z)
+}
+
 func genFeed(dest, site string) error {
 	now := time.Now()
 	subURL := fmt.Sprintf(rootURL, site)
-	feed := &feeds.Feed{
+	feed := Feed{
 		Title:       fmt.Sprintf("%s updates", site),
-		Link:        &feeds.Link{Href: subURL},
+		Link:        subURL,
 		Description: fmt.Sprintf("changes/updates from %s", site),
-		Created:     now,
+		Created:     newFeedTime(now),
 	}
 	output, err := exec.Command("git", "log", "-n", "25", "--format=%ai %f %H", site).Output()
 	if err != nil {
@@ -140,18 +166,21 @@ func genFeed(dest, site string) error {
 			return err
 		}
 		title := parts[3]
-		feed.Items = append(feed.Items, &feeds.Item{
+		feed.Items = append(feed.Items, FeedItem{
 			Title:       title,
 			Description: title,
-			Created:     dt,
-			Link:        &feeds.Link{Href: fmt.Sprintf("https://github.com/enckse/voidedtech/commit/%s", parts[4])},
+			Created:     newFeedTime(dt),
+			Link:        fmt.Sprintf("https://github.com/enckse/voidedtech/commit/%s", parts[4]),
 		})
 	}
 
-	rss, err := feed.ToRss()
+	rss := RSS{Version: "2.0", Channel: feed, ContentNamespace: "http://purl.org/rss/1.0/modules/content/"}
+	raw, err := xml.MarshalIndent(rss, "", "  ")
 	if err != nil {
 		return err
 	}
-
-	return os.WriteFile(filepath.Join(dest, fmt.Sprintf("%s.xml", site)), []byte(rss), 0644)
+	var data []byte
+	data = append(data, xmlHeader...)
+	data = append(data, raw...)
+	return os.WriteFile(filepath.Join(dest, fmt.Sprintf("%s.xml", site)), data, 0644)
 }
