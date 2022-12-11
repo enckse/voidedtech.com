@@ -140,14 +140,13 @@ func newFeedTime(t time.Time) string {
 }
 
 func genFeed(dest, site string) error {
-	now := time.Now()
 	subURL := fmt.Sprintf(rootURL, site)
 	feed := Feed{
 		Title:       fmt.Sprintf("%s updates", site),
 		Link:        subURL,
 		Description: fmt.Sprintf("changes/updates from %s", site),
-		Created:     newFeedTime(now),
 	}
+	var creation time.Time
 	output, err := exec.Command("git", "log", "-n", "25", "--format=%ai %f %H", site).Output()
 	if err != nil {
 		return err
@@ -165,6 +164,9 @@ func genFeed(dest, site string) error {
 		if err != nil {
 			return err
 		}
+		if dt.After(creation) {
+			creation = dt
+		}
 		title := parts[3]
 		feed.Items = append(feed.Items, FeedItem{
 			Title:       title,
@@ -173,7 +175,10 @@ func genFeed(dest, site string) error {
 			Link:        fmt.Sprintf("https://github.com/enckse/voidedtech/commit/%s", parts[4]),
 		})
 	}
-
+	if len(feed.Items) == 0 {
+		return errors.New("no items found")
+	}
+	feed.Created = newFeedTime(creation)
 	rss := RSS{Version: "2.0", Channel: feed, ContentNamespace: "http://purl.org/rss/1.0/modules/content/"}
 	raw, err := xml.MarshalIndent(rss, "", "  ")
 	if err != nil {
