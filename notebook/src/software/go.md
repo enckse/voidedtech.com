@@ -26,3 +26,10 @@ go tool pprof cpu.prof
 ```
 
 To interrogate the resulting output file
+
+## gopls/goimports
+
+`gopls` can be used like `goimports` from the command line
+```
+gopls format <goimports arguments>
+```
