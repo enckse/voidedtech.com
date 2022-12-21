@@ -22,7 +22,8 @@ var (
 	indexHTML string
 	//go:embed main.css
 	mainCSS []byte
-	linkSet = []string{newRecord("https://github.com/enckse", "Github"),
+	linkSet = []string{newRecord("https://github.com/enckse", "GitHub"),
+		newRecord("https://gitlab.com/enckse", "GitLab"),
 		newRecord("https://goodreads.com/enckse", "Goodreads"),
 		newRecord("https://instagram.com/seanenck", "Instagram"),
 		newRecord("https://www.linkedin.com/in/sean-enck-22420314", "LinkedIn")}
