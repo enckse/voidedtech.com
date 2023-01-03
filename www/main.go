@@ -27,7 +27,8 @@ var (
 		newRecord("https://goodreads.com/enckse", "Goodreads"),
 		newRecord("https://instagram.com/seanenck", "Instagram"),
 		newRecord("https://www.linkedin.com/in/sean-enck-22420314", "LinkedIn")}
-	xmlHeader = []byte(xml.Header[:len(xml.Header)-1])
+	xmlHeader   = []byte(xml.Header[:len(xml.Header)-1])
+	contentDirs = []string{"www", "notebook", "crafts"}
 )
 
 const (
@@ -100,7 +101,16 @@ func build(sub, dest, rss string) error {
 		links = append(links, l)
 	}
 	obj := SiteData{}
-	obj.Date = time.Now().Format("2006-01-02")
+	var dates []string
+	for _, dir := range contentDirs {
+		o, err := exec.Command("git", "log", "-n", "1", "--format=%as", dir).Output()
+		if err != nil {
+			return err
+		}
+		dates = append(dates, strings.TrimSpace(string(o)))
+	}
+	sort.Strings(dates)
+	obj.Date = dates[len(contentDirs)-1]
 	obj.Links = links
 	tmpl, err := template.New("t").Parse(indexHTML)
 	if err != nil {
