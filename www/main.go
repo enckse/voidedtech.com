@@ -22,11 +22,13 @@ var (
 	indexHTML string
 	//go:embed main.css
 	mainCSS []byte
-	linkSet = []string{newRecord("https://github.com/enckse", "GitHub"),
+	linkSet = []string{
+		newRecord("https://github.com/enckse", "GitHub"),
 		newRecord("https://gitlab.com/enckse", "GitLab"),
 		newRecord("https://goodreads.com/enckse", "Goodreads"),
 		newRecord("https://instagram.com/seanenck", "Instagram"),
-		newRecord("https://www.linkedin.com/in/sean-enck-22420314", "LinkedIn")}
+		newRecord("https://www.linkedin.com/in/sean-enck-22420314", "LinkedIn"),
+	}
 	xmlHeader   = []byte(xml.Header[:len(xml.Header)-1])
 	contentDirs = []string{"www", "notebook", "crafts"}
 )
@@ -120,10 +122,10 @@ func build(sub, dest, rss string) error {
 	if err := tmpl.Execute(&buf, obj); err != nil {
 		return err
 	}
-	if err := os.WriteFile(filepath.Join(dest, "index.html"), buf.Bytes(), 0644); err != nil {
+	if err := os.WriteFile(filepath.Join(dest, "index.html"), buf.Bytes(), 0o644); err != nil {
 		return err
 	}
-	if err := os.WriteFile(filepath.Join(dest, "main.css"), mainCSS, 0644); err != nil {
+	if err := os.WriteFile(filepath.Join(dest, "main.css"), mainCSS, 0o644); err != nil {
 		return err
 	}
 
@@ -198,5 +200,5 @@ func genFeed(dest, site string) error {
 	var data []byte
 	data = append(data, xmlHeader...)
 	data = append(data, raw...)
-	return os.WriteFile(filepath.Join(dest, fmt.Sprintf("%s.xml", site)), data, 0644)
+	return os.WriteFile(filepath.Join(dest, fmt.Sprintf("%s.xml", site)), data, 0o644)
 }
