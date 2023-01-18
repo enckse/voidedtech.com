@@ -11,12 +11,8 @@ jobs:
     container:
       image: alpine:latest
     steps:
-      - name: "setup repo"
-        run: "echo '@edge https://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories"
-      - name: "update repo"
-        run: "apk update"
       - name: "setup deps"
-        run: "apk add make bash go mdbook@edge git"
+        run: "apk add make bash go mdbook git"
       - name: "clone"
         run: "git clone https://github.com/enckse/voidedtech"
       - name: "checkout"
