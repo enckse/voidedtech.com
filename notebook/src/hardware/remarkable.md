@@ -3,11 +3,11 @@ Remarkable2
 
 The remarkable2 table is an eink notebook.
 
-# Using
+## Using
 
 It's entirely possible to use the remarkable2 without using connect/cloud services
 
-## Connecting
+### Connecting
 
 Connect via USB and configure the usb device with the following
 
@@ -18,7 +18,7 @@ iface usb0 inet static
     netmask 255.255.255.249
 ```
 
-## Import/Export
+### Import/Export
 
 To export notebooks or import PDFs:
 
@@ -27,7 +27,7 @@ To export notebooks or import PDFs:
 - Navigate to http://10.11.99.1 and notebooks can be exported
 - Drag-and-drop PDFs onto the web interface to add PDFs to the remarkable
 
-## Templates
+### Templates
 
 To make a new notebook template
 

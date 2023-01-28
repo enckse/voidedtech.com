@@ -1,9 +1,9 @@
 ssh
 ===
 
-# Profile
+## Profile
 
-## noprofile
+### noprofile
 
 Connect without profile
 
@@ -11,9 +11,9 @@ Connect without profile
 ssh -t <host> bash --norc --noprofile
 ```
 
-# Host Keys
+## Host Keys
 
-## Scanning
+### Scanning
 
 scan keys for git forwarding/relaying/mirroring/etc.
 

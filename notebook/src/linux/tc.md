@@ -3,7 +3,7 @@ Traffic Control (tc)
 
 Any useful notes about using `tc`, one can use `bmon` to interactively review the impact of playing with `tc`
 
-# basic traffic shaping
+## basic traffic shaping
 
 An example, on Alpine Linux running as a router, of using `ifb` with `tc` to try and shape some traffic (in both directions)
 

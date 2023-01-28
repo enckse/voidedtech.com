@@ -24,7 +24,7 @@ apk del syslinux
 apk add grub grub-efi efibootmgr
 ```
 
-## Boot Arguments
+## Arguments
 
 Information that expands upon the documentation for Alpine's initramfs command
 line options.

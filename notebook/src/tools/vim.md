@@ -1,7 +1,7 @@
 vim
 ===
 
-# Replace Mode (Startup)
+## Replace Mode (Startup)
 
 If `vim` starts in replace mode:
 

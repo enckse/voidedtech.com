@@ -4,13 +4,13 @@ Cloud Init
 Notes about using cloud-init to bootstrap a small system (mostly virtualized in
 the following use cases)
 
-# networking
+## networking
 
 It can be easier to set a static IP via kernel parameters (e.g. `ip=` then it
 is to find the documentation for cloud-init networking which will tell you to
 use `ip=` or some other arcane method)
 
-## post-boot
+### post-boot
 
 a cloud-init system can end up no longer using `ip=` in some cases (e.g.
 Fedora cloud images) which means creating an `/etc/sysconfig/network-scripts/ifcfg-Wired_connection_1`
@@ -33,13 +33,13 @@ ONBOOT=yes
 AUTOCONNECT_PRIORITY=-999
 ```
 
-# vmlinuz/initramfs
+## vmlinuz/initramfs
 
 These can be pulled out of most ISOs though the ISO needs to have been built
 with the `virtio` module if it is going to be used for virtualization (e.g.
 passing a kernel/initram to a process to start as a VM)
 
-# disks
+## disks
 
 It is easier to use a "cloud ready" image that is a disk image that can be
 booted directly (and not booting an installation media/iso). Then one can set

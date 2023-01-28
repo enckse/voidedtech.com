@@ -1,7 +1,7 @@
 openssl
 ===
 
-# imap
+## imap
 
 `openssl` can connect to an imap server and run commands (e.g. fastmail)
 

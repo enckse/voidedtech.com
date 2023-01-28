@@ -1,4 +1,4 @@
 Linux
 ===
 
-Information that is general to "Linux" and not a specific distribution
+General notes about various distributions, tools, etc.

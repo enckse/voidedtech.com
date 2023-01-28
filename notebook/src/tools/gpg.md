@@ -1,7 +1,7 @@
 gpg
 ===
 
-# Passwords
+## Passwords
 
 Change existing password
 

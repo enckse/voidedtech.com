@@ -3,7 +3,7 @@ Virtualization (virsh)
 
 Notes about using `virsh` and related commands
 
-# Installation
+## Installation
 
 Simple installation (using a vnc "display")
 ```
@@ -37,16 +37,16 @@ once configuration/install is done then `console=ttyS0,115200` can be
 added to the kernel parameters and one can attach to the machine console
 via `virsh console myvm`
 
-# attaching
+## attaching
 
-## disks
+### disks
 
 A block device can be directly attached
 ```
 virsh attach-disk --domain myvm /dev/sda1 vdb --config --type disk
 ```
 
-## usb device
+### usb device
 
 Need the code for the usb (e.g. `lsusb -v`) to place into the following file
 ```
