@@ -11,5 +11,5 @@ For example to create a new chroot, using the host's release, use a "shared" cac
 
 ```
 dnf install -y --releasever=/ --installroot /path/to/chroot
---setopt=cachedir=/var/cache/dnf --setopt=keepcache=True
+--setopt=cachedir=/var/cache/dnf --setopt=keepcache=True package1 package2
 ```
