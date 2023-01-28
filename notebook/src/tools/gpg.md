@@ -1,4 +1,4 @@
-gpg
+GNU Privacy Guard (GPG)
 ===
 
 ## Passwords

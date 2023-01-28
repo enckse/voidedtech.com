@@ -1,7 +1,11 @@
-Hyper-V Static Guest IP
+Hyper-V 
 ===
 
-## Host
+## Static Guest IP
+
+Enabling static IPs in guests
+
+### Host
 
 In order to get a static guest IP, one can **NOT** use the default switch and instead must create "their own"
 
@@ -25,7 +29,7 @@ Setup NAT (internet access)
 New-NetNat -Name MyNAT -InternalIPInterfaceAddressPrefix 192.168.3.0/24
 ```
 
-## Guest
+### Guest
 
 Setup the guest IP (manually, no DHCP server exists)
 ```

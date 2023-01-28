@@ -1,4 +1,4 @@
-dnf
+DNF
 ===
 
 ## chroots
