@@ -1,4 +1,4 @@
-ssh
+OpenSSH
 ===
 
 ## Profile
