@@ -1,9 +1,21 @@
-Disks
+macOS
 ===
 
-# iso handling
+## builtin
 
-## alpine (rpi4) bootable disks
+### vnc
+
+macOS can open vnc connections via `open`
+
+```
+open vnc://myvncserver:5900
+```
+
+## disks
+
+### iso handling
+
+#### alpine (rpi4) bootable disks
 
 Partition the target
 ```
@@ -27,7 +39,7 @@ gpu_mem=32
 disable_overscan=1
 ```
 
-## cloud ready
+#### cloud ready
 
 To create a cloud-init ready iso on macOS, place "user-data" and "meta-data" in a `configs/` directory (or any name)
 
@@ -37,7 +49,7 @@ hdiutil makehybrid -o init.iso -joliet -iso -default-volume-name cidata configs/
 
 (make sure to specify `-joliet -iso` because otherwise macOS will try to use `-hfs` which many systems will not have installed/ready)
 
-## mount/unmount
+#### mount/unmount
 
 an iso can attached or detached via `hdiutil`
 ```
