@@ -16,9 +16,9 @@ jobs:
       - name: "clone"
         run: "git clone https://github.com/enckse/voidedtech.com"
       - name: "checkout"
-        run: "git -C voidedtech checkout $GITHUB_SHA"
+        run: "git -C voidedtech.com checkout $GITHUB_SHA"
       - name: "build dist"
-        run: "cd voidedtech && make release"
+        run: "cd voidedtech.com && make release"
       - name: "archive artifacts"
         uses: actions/upload-artifact@v3
         with:
@@ -42,6 +42,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCT_ID }}
-          projectName: voidedtech
+          projectName: voidedtech.com
           directory: dist/
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
