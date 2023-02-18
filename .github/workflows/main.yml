@@ -14,7 +14,7 @@ jobs:
       - name: "setup deps"
         run: "apk add make bash go mdbook git"
       - name: "clone"
-        run: "git clone https://github.com/enckse/voidedtech"
+        run: "git clone https://github.com/enckse/voidedtech.com"
       - name: "checkout"
         run: "git -C voidedtech checkout $GITHUB_SHA"
       - name: "build dist"
