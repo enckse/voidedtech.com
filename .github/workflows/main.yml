@@ -23,7 +23,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: dist
-          path: voidedtech/dist
+          path: voidedtech.com/dist
   publish:
     needs: build
     runs-on: ubuntu-latest
