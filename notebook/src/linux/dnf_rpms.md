@@ -1,4 +1,4 @@
-DNF
+DNF/RPMs
 ===
 
 ## chroots
@@ -12,4 +12,11 @@ For example to create a new chroot, using the host's release, use a "shared" cac
 ```
 dnf install -y --releasever=/ --installroot /path/to/chroot
 --setopt=cachedir=/var/cache/dnf --setopt=keepcache=True package1 package2
+```
+
+## unpack
+
+to unpack the contents of an rpm
+```
+rpm2cpio <rpm> | cpio -idmv
 ```
