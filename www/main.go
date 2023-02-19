@@ -30,7 +30,7 @@ var (
 		newRecord("https://www.linkedin.com/in/sean-enck-22420314", "LinkedIn"),
 	}
 	xmlHeader   = []byte(xml.Header[:len(xml.Header)-1])
-	contentDirs = []string{"www", "notebook", "crafts"}
+	contentDirs = []string{"www", "notebook"}
 )
 
 const (

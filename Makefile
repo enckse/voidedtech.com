@@ -1,6 +1,6 @@
 DIST := dist/
 RSS  := $(DIST)rss/
-SUBS := notebook crafts
+SUBS := notebook
 
 .PHONY: $(SUBS)
 
