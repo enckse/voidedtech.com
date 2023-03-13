@@ -38,7 +38,7 @@ jobs:
           name: dist
           path: dist
       - name: "publish"
-        uses: cloudflare/pages-action@v1.3.0
+        uses: cloudflare/pages-action@v1.4.1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCT_ID }}
