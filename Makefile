@@ -1,12 +1,7 @@
 DIST := dist/
-RSS  := $(DIST)rss/
 SUBS := notebook
 
 .PHONY: $(SUBS)
-
-all: build
-
-build: $(TARGET)
 
 release: clean main subsites
 
@@ -15,8 +10,7 @@ clean:
 	mkdir -p $(DIST)
 
 main:
-	mkdir -p $(RSS)
-	go run www/main.go -rss $(RSS) -target $(DIST) -sites "$(SUBS)"
+	./www/configure "$(DIST)"
 
 subsites: $(SUBS)
 

@@ -1,0 +1,91 @@
+#!/usr/bin/env bash
+_header() {
+  cat << EOF
+  <!doctype html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <link href="main.css" rel="stylesheet" type="text/css" />
+  <title>voidedtech.com</title>
+  </head>
+  <body>
+      <div id="site">
+          <div class="header-text">About me<br /></div>
+        <div id="main">
+EOF
+}
+
+_links() {
+  local link
+  for link in \
+		      "Github:https://github.com/enckse" \
+		      "Gitlab:https://gitlab.com/enckse" \
+		      "Goodreads:https://goodreads.com/enckse" \
+		      "Instagram:https://instagram.com/seanenck" \
+              "LinkedIn:https://www.linkedin.com/in/sean-enck-22420314" \
+              "Notebook:notebook/" \
+              ; \
+            do
+    echo "$link"
+  done
+}
+
+_body() {
+  local link href name
+  for link in $(_links | sort); do
+    echo "<br />"
+    name=$(echo "$link" | cut -d ":" -f 1)
+    href=$(echo "$link" | cut -d ":" -f 2-)
+    echo "<a href=\"$href\"><div class=\"entry\">$name</div></a>"
+  done
+}
+
+_footer() {
+  cat << EOF
+        </div>
+        <div class="footer-text"><hr />
+            <div class="footer-small">
+                <p>You may also know me from:</p>
+                <p>
+                <ul>
+                    <li>GVSC/TARDEC/Department of the Army/DoD - 2015.07 to present</li>
+                    <li>Lakeside Software - 2012.03 to 2015.07</li>
+                    <li>Infor (Global Solutions) - 2009.10 to 2012.03</li>
+                    <li>Omron (Automotive Electronics) - 2007.04 to 2009.06</li>
+                    <li>Kettering University - 2005 to 2009</li>
+                </ul>
+                </p>
+                <p>Contact me here if needed: 
+                <a href="mailto:enckse@gmail.com">enckse@gmail.com</a></p>
+                Updated: {DATE}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+EOF
+}
+
+_git() {
+  for dir in www notebook; do
+    git log -n 1 --format="%as" "$dir"
+  done
+}
+
+_html() {
+  local dated dir
+  dated=$(_git | sort -r | head -n 1)
+  if [ -z "$dated" ]; then
+    echo "unable to determine timestamp"
+    exit 1
+  fi
+  _header
+  _body
+  _footer | sed "s/{DATE}/$dated/g"
+}
+
+_html > "$1/index.html"
+if ! cp www/main.css "$1"; then
+  echo "failed to copy css"
+  exit 1
+fi
