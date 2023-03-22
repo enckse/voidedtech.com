@@ -18,7 +18,7 @@ jobs:
       - name: "checkout"
         run: "git -C voidedtech.com checkout $GITHUB_SHA"
       - name: "build dist"
-        run: "cd voidedtech.com && make release"
+        run: "cd voidedtech.com && make"
       - name: "archive artifacts"
         uses: actions/upload-artifact@v3
         with:
