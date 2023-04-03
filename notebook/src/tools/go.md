@@ -25,7 +25,17 @@ Then run
 go tool pprof cpu.prof
 ```
 
-To interrogate the resulting output file
+To interrogate the resulting output file (e.g. `top10`).
+
+### Testing
+
+alternatively call:
+
+```
+go test -cpuprofile cpu.out -memprofile mem.out .
+```
+
+on a single package (as that is all it allows)
 
 ## gopls/goimports
 
