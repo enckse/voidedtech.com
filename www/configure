@@ -18,10 +18,10 @@ EOF
 _links() {
   local link
   for link in \
-		      "GitHub:https://github.com/enckse" \
-		      "GitLab:https://gitlab.com/enckse" \
-		      "Goodreads:https://goodreads.com/enckse" \
-		      "Instagram:https://instagram.com/seanenck" \
+              "GitHub:https://github.com/enckse" \
+              "GitLab:https://gitlab.com/enckse" \
+              "Goodreads:https://goodreads.com/enckse" \
+              "Instagram:https://instagram.com/seanenck" \
               "LinkedIn:https://www.linkedin.com/in/sean-enck-22420314" \
               "Notebook:notebook/" \
               ; \
