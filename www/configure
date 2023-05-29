@@ -83,6 +83,11 @@ _html() {
   _footer | sed "s/{DATE}/$dated/g"
 }
 
+if [ -z "$1" ]; then
+  echo "target required"
+  exit 1
+fi
+
 _html > "$1/index.html"
 if ! cp www/main.css "$1"; then
   echo "failed to copy css"
