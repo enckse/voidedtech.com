@@ -15,5 +15,5 @@ main:
 subsites: $(SUBS)
 
 $(SUBS):
-	cd $@ && make release
+	cd $@ && ./configure && mdbook build
 	cp -r $@/book $(DIST)$@
