@@ -1,19 +1,10 @@
 DIST := dist/
-SUBS := notebook
 
-.PHONY: $(SUBS)
-
-release: clean main subsites
+release: clean
+	./www/configure "$(DIST)"
+	cd notebook && ./configure && mdbook build
+	cp -r notebook/book $(DIST)notebook
 
 clean:
 	rm -rf $(DIST)
 	mkdir -p $(DIST)
-
-main:
-	./www/configure "$(DIST)"
-
-subsites: $(SUBS)
-
-$(SUBS):
-	cd $@ && ./configure && mdbook build
-	cp -r $@/book $(DIST)$@
