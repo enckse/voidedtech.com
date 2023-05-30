@@ -5,7 +5,7 @@
     border: 1px solid black;
     border-radius: 10px;
     border-style: none none solid solid;
-    padding: 5px 5px 5px 5px;
+    padding: 5px;
 }
 
 body
@@ -19,7 +19,7 @@ body
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-    padding:20px 20px 20px 20px;
+    padding: 20px;
 }
 
 #site
@@ -45,7 +45,7 @@ body
     width:75%;
     margin-left: auto;
     margin-right: auto;
-    padding: 20px 20px 20px 20px;
+    padding: 20px;
     clear: both;
     font-size: 12px;
 }
