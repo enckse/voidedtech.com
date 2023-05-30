@@ -1,5 +1,4 @@
-.entry
-{
+.entry {
     margin-left: auto;
     margin-right: auto ;
     border: 1px solid black;
@@ -8,29 +7,25 @@
     padding: 5px;
 }
 
-body
-{
+body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 20px;
 }
 
-#main
-{
+#main {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
 }
 
-#site
-{
+#site {
     margin-left: auto;
     margin-right: auto;
     width: 70%;
 }
 
-.header-text
-{
+.header-text {
     padding-bottom: 20px;
     padding-top: 20px;
     padding-left: 30px;
@@ -40,8 +35,7 @@ body
     margin-right: auto ;
 }
 
-.footer-text
-{
+.footer-text {
     width:75%;
     margin-left: auto;
     margin-right: auto;
