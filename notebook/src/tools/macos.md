@@ -57,3 +57,14 @@ hdiutil attach <file.iso> -mountpoint /Volumes/mymount
 # and then
 hdiutil detach /Volumes/mymount
 ```
+
+### virtualization
+
+#### dhcp
+
+the leases are stored here
+```
+cat /var/db/dhcpd_leases
+```
+
+_this file can be deleted to reset the leases_
