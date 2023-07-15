@@ -20,7 +20,7 @@
       </header>
       <section class="main-block concise">
         <h2>
-          <i class="fa"></i> Experiences
+          <i class="fa"></i> Experience
         </h2>
         <section class="blocks">
           <div class="date">
@@ -61,7 +61,7 @@
                     <ul>
                         <li>Developed software solutions to collect data for analysis</li>
                         <li>Built a solution to provide surveying abilities for experiment participants</li>
-                        <li>Wrote build tooling to manage Unreal software solution builds and artifacts</li>
+                        <li>Constructed build tooling to manage Unreal software solution builds and artifacts</li>
                     </ul>
               </ul>
               </div>
@@ -89,8 +89,8 @@
                     <li class="header">Web Services (Technical Lead)</li>
                     <ul>
                         <li>Built solutions to support highly scaled on-premises and cloud deployments</li>
-                        <li>Subject matter expert for customer support issues relating to web services</li>
-                        <li>Developed web service solutions for all web applications</li>
+                        <li>Provided engineering escalation support for customer support issues for all web services</li>
+                        <li>Developed web service solutions (REST APIs) for all web applications</li>
                     </ul>
               </ul>
             </div>
@@ -119,7 +119,7 @@
                   <li class="header">Corporate Performance Management</li>
                   <ul>
                       <li>Implemented a compiler to support end-user scripting against data</li>
-                      <li>Developed a solution to consume data inputs and outputs from ERP systems</li>
+                      <li>Developed solutions to consume data inputs and outputs from ERP systems</li>
                   </ul>
               </ul>
               </div>
