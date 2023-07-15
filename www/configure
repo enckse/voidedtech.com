@@ -44,16 +44,6 @@ _footer() {
         </div>
         <div class="footer-text"><hr />
             <div class="footer-small">
-                <p>You may also know me from:</p>
-                <p>
-                <ul>
-                    <li>GVSC/TARDEC/Department of the Army/DoD - 2015.07 to present</li>
-                    <li>Lakeside Software - 2012.03 to 2015.07</li>
-                    <li>Infor (Global Solutions) - 2009.10 to 2012.03</li>
-                    <li>Omron (Automotive Electronics) - 2007.04 to 2009.06</li>
-                    <li>Kettering University - 2005 to 2009</li>
-                </ul>
-                </p>
                 <p>Contact me here if needed: 
                 <a href="mailto:enckse@gmail.com">enckse@gmail.com</a></p>
                 Updated: {DATE}
