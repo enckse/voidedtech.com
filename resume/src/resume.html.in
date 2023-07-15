@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="vendor/normalize.css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="vendor/fontawesome/css/fontawesome.css" />
+    <script type="text/javascript" src="resume.js"></script>
+    <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        process("{MODE}");
+    });
+    </script>
+  </head>
+  <body lang="en">
+    <section id="main">
+      <header id="title">
+        <h1>Sean Enck</h1>
+        <span class="subtitle" id="contact"></span>
+      </header>
+      <section class="main-block concise">
+        <h2>
+          <i class="fa"></i> Experiences
+        </h2>
+        <section class="blocks">
+          <div class="date">
+            <span>Present</span><span>2015.07</span>
+          </div>
+          <div class="decorator">
+          </div>
+          <div class="details">
+            <header>
+              <h3 id="current-title">Senior Staff Computer Scientist</h3>
+              <span class="subtitle-left">GVSC (Department of the Army/DoD)</span>
+              <span class="subtitle-right">Warren, MI</span>
+            </header>
+            <div>
+                <ul>
+                    <li class="header">CREATE-GV Simulation Software (Technical Lead)</li>
+                    <ul>
+                        <li>Deployed solution stacks to HPC systems</li>
+                        <li>Managed engineering activities</li>
+                        <li>Modernized engineering approaches and technical implementations</li>
+                        <li>Provided detailed reports to stakeholders regarding software metrics</li>
+                    </ul>
+                    <li class="header">Research Laboratory Network (Technical Lead)</li>
+                    <ul>
+                        <li>Developed a solution to provide additional security layers via a RADIUS proxy</li>
+                        <li>Maintained package repositories for multiple Linux distributions</li>
+                        <li>Administratively managed laboratory server systems</li>
+                    </ul>
+                    <li class="header">Software Engineering Subject Matter Expert</li>
+                    <ul>
+                        <li>Provided insight to multiple projects regarding best practices</li>
+                        <li>Mentored team members through presentations and one-on-one sessions</li>
+                        <li>Informed leadership on technical matters relating to software engineering</li>
+                        <li>Guided organizational efforts for selecting project tooling</li>
+                        <li>Performed troubleshooting/debugging of complex whole solution issues</li>
+                    </ul>
+                    <li class="header">Virtual Experimentation Environments</li>
+                    <ul>
+                        <li>Developed software solutions to collect data for analysis</li>
+                        <li>Built a solution to provide surveying abilities for experiment participants</li>
+                        <li>Wrote build tooling to manage Unreal software solution builds and artifacts</li>
+                    </ul>
+              </ul>
+              </div>
+          </div>
+        </section>
+        <section class="blocks">
+          <div class="date">
+            <span>2015.07</span><span>2012.03</span>
+          </div>
+          <div class="decorator">
+          </div>
+          <div class="details">
+            <header>
+              <h3>Senior Software Engineer</h3>
+              <span class="subtitle-left">Lakeside Software</span>
+              <span class="subtitle-right">Ann Arbor, MI</span>
+            </header>
+            <div>
+                <ul>
+                    <li class="header">Business Intelligence Reporting</li>
+                    <ul>
+                        <li>Implemented and deployed database solutions to support BI needs</li>
+                        <li>Supported web service integration to provide detailed data drill down</li>
+                    </ul>
+                    <li class="header">Web Services (Technical Lead)</li>
+                    <ul>
+                        <li>Built solutions to support highly scaled on-premises and cloud deployments</li>
+                        <li>Subject matter expert for customer support issues relating to web services</li>
+                        <li>Developed web service solutions for all web applications</li>
+                    </ul>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="blocks">
+          <div class="date">
+            <span>2012.03</span><span>2009.10</span>
+          </div>
+          <div class="decorator">
+          </div>
+          <div class="details">
+            <header>
+              <h3>Software Engineer</h3>
+              <span class="subtitle-left">Infor</span>
+              <span class="subtitle-right">Ann Arbor, MI</span>
+            </header>
+            <div>
+              <ul>
+                  <li class="header">Business Intelligence Integration</li>
+                  <ul>
+                      <li>Designed and supported multi-tenant implementations for hosted solutions</li>
+                      <li>Integrated federated security into various solutions and deployments</li>
+                      <li>Managed virtual development systems and continuous integration builds</li>
+                  </ul>
+                  <li class="header">Corporate Performance Management</li>
+                  <ul>
+                      <li>Implemented a compiler to support end-user scripting against data</li>
+                      <li>Developed a solution to consume data inputs and outputs from ERP systems</li>
+                  </ul>
+              </ul>
+              </div>
+          </div>
+        </section>
+      </section>
+      <section class="main-block concise">
+        <h2>
+          <i class="fa"></i> Education
+        </h2>
+        <section class="blocks">
+          <div class="date">
+            <span>2009.09</span>
+          </div>
+          <div class="decorator">
+          </div>
+          <div class="details">
+            <header>
+              <h3>Kettering University</h3>
+              <span class="subtitle-left">Bachelor of Science: Computer Science (Concentration: System and Data Security)</span>
+            </header>
+            </div>
+          </div>
+        </section>
+      </section>
+    </section>
+    <aside id="sidebar">
+      <div class="sidebar-first sidebar-area">
+        <div id="profiles">
+        <h1>
+          Profiles
+        </h1>
+        <ul>
+            <li>GitHub: enckse</li>
+            <li>Website: voidedtech.com</li>
+        </ul>
+        </div>
+      </div>
+      <div class="side-block sidebar-area">
+        <h1>
+          Skills
+        </h1>
+        <ul>
+            <li class="header">Development</li>
+            <ul>
+                <li>Bash</li>
+                <li>C# (.NET)</li>
+                <li>Containers</li>
+                    <ul>
+                        <li>Docker</li>
+                        <li>LXC</li>
+                        <li>Podman</li>
+                    </ul>
+                <li>Git</li>
+                <li>Go</li>
+                <li>Linux</li>
+                <ul>
+                    <li>Alpine Linux</li>
+                    <li>Arch Linux</li>
+                    <li>Debian</li>
+                    <li>Fedora</li>
+                </ul>
+                <li>macOS</li>
+                <li>Packaging</li>
+                <ul>
+                    <li>deb</li>
+                    <li>rpm</li> 
+                </ul>
+                <li>Python</li>
+                <li>Rust</li>
+                <li>Windows</li>
+                <li>Virtualization</li>
+                <ul>
+                    <li>Hyper-V</li>
+                    <li>KVM</li>
+                </ul>
+            </ul>
+
+            <li class="header">Specialities</li>
+            <ul>
+                <li>802.1X/EAP/RADIUS</li>
+                <li>HPC Deployments</li>
+                <li>Packaging</li>
+                <li>REST APIs</li>
+            </ul>
+        </ul>
+      </div>
+    </aside>
+  </body>
+</html>

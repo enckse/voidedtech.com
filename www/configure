@@ -23,6 +23,7 @@ _links() {
     "Instagram:https://instagram.com/seanenck" \
     "LinkedIn:https://www.linkedin.com/in/sean-enck-22420314" \
     "Notebook:notebook/" \
+    "Resume:resume/" \
     ; do
     echo "$link"
   done
@@ -65,7 +66,7 @@ EOF
 }
 
 _git() {
-  for dir in www notebook; do
+  for dir in www notebook resume; do
     git log -n 1 --format="%as" "$dir"
   done
 }
