@@ -140,8 +140,18 @@
             <header>
               <h3>Kettering University</h3>
               <span class="subtitle-left">Bachelor of Science: Computer Science (Concentration: System and Data Security)</span>
+              <span class="subtitle-right">Flint, MI</span>
             </header>
+            <div>
+              <ul>
+                  <li class="header">Cooperative Employer: Omron Automotive Electronics</li>
+                  <ul>
+                      <li>Developed a test automation solution for long-running tests</li>
+                      <li>Verified software solutions against requirements</li>
+                  </ul>
+              </ul>
             </div>
+          </div>
           </div>
         </section>
       </section>
@@ -173,8 +183,10 @@
                         <li>LXC</li>
                         <li>Podman</li>
                     </ul>
+                <li>D</li>
                 <li>Git</li>
                 <li>Go</li>
+                <li>Java</li>
                 <li>Linux</li>
                 <ul>
                     <li>Alpine Linux</li>
@@ -188,13 +200,20 @@
                     <li>deb</li>
                     <li>rpm</li> 
                 </ul>
+                <li>Perl</li>
                 <li>Python</li>
                 <li>Rust</li>
-                <li>Windows</li>
                 <li>Virtualization</li>
                 <ul>
                     <li>Hyper-V</li>
                     <li>KVM</li>
+                </ul>
+                <li>Windows</li>
+                <li>Web</li>
+                <ul>
+                    <li>CSS</li>
+                    <li>HTML</li>
+                    <li>JavaScript</li>
                 </ul>
             </ul>
 
