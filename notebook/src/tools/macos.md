@@ -11,6 +11,13 @@ macOS can open vnc connections via `open`
 open vnc://myvncserver:5900
 ```
 
+### quarantine
+
+to remove quarantine on a downloaded (trusted) file:
+```
+xattr -d com.apple.quarantine <file>
+```
+
 ## disks
 
 ### iso handling
