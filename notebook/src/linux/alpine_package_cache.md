@@ -1,9 +1,9 @@
 Alpine Package Cache
 ===
 
-Utilizing `nginx` to provide an Alpine Linux package cache for apk files. The idea
-is, on a network, to use nginx to provide a common repository of cached packages
-that _any_ machine has requested that can then be re-used by subsequent requests.
+Information about utilizing `nginx` to provide an Alpine Linux package cache for apk files.
+This will cache actual package payloads to disk (for re-use) while allowing
+metadata to always go upstream.
 
 Below is an example configuration file (that would then be "included" into an `nginx.conf`)
 
