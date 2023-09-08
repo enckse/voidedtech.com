@@ -18,6 +18,13 @@ to remove quarantine on a downloaded (trusted) file:
 xattr -d com.apple.quarantine <file>
 ```
 
+### keychain
+
+retrieve a password (plaintext) from the keychain
+```
+security find-generic-password -a <item> -g -w
+```
+
 ## disks
 
 ### iso handling
