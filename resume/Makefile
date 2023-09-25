@@ -2,9 +2,9 @@ NAME      :=
 TARGET    :=
 BIN       := dist/
 TYPES     := $(BIN)personal.html $(BIN)work.html
-VARS      := $(HOME)/.env/local/misc/resume.js
+VARS      := $(HOME)/.local/git/controlled/util/resume/vars.js
 NORMALIZE := 8.0.1
-AWESOME   := 6.4.0
+AWESOME   := 6.4.2
 FAWORKING := fa.zip
 
 resumes: resources $(TYPES)
@@ -27,8 +27,8 @@ clean:
 	rm -rf $(BIN)
 
 deps: clean setup
-	wget -O vendor/normalize.css/normalize.css "https://necolas.github.io/normalize.css/$(NORMALIZE)/normalize.css"
-	wget -O $(BIN)$(FAWORKING) "https://use.fontawesome.com/releases/v$(AWESOME)/fontawesome-free-$(AWESOME)-web.zip"
+	curl --silent --fail "https://necolas.github.io/normalize.css/$(NORMALIZE)/normalize.css" > vendor/normalize.css/normalize.css
+	curl --silent --fail "https://use.fontawesome.com/releases/v$(AWESOME)/fontawesome-free-$(AWESOME)-web.zip" > $(BIN)$(FAWORKING)
 	cd $(BIN) && unzip $(FAWORKING)
 	cp -r $(BIN)fontawesome-free-$(AWESOME)-web/* vendor/fontawesome/
 
