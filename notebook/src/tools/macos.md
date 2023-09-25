@@ -29,6 +29,26 @@ security find-generic-password -a <item> -g -w
 
 ### iso handling
 
+#### mounting
+
+mounting linux ISO files can be accomplished through a few extra steps
+```
+hdiutil attach -nomount <image.iso>
+```
+
+which will output disk information about the attachment it should make
+```
+# need somewhere to mount
+mkdir -p iso
+mount -t cd9660 /dev/disk(see above) ./iso
+```
+
+do not forget to umount/detach
+```
+umount ./iso
+hdiutil detach /dev/disk(see above)
+```
+
 #### alpine (rpi4) bootable disks
 
 Partition the target
