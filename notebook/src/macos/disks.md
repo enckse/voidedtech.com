@@ -1,4 +1,4 @@
-disks
+Disks
 ===
 
 tools to work with disks within macOS

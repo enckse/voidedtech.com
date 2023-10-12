@@ -1,4 +1,4 @@
-quarantine
+Quarantine
 ===
 
 ## attribute removal

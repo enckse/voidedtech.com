@@ -1,4 +1,4 @@
-Alpine Installation (Raspberry Pi 4)
+Alpine on a Raspberry Pi 4
 ===
 
 Assuming the boot media is created (sd card) then the following should,
