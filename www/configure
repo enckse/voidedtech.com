@@ -22,7 +22,6 @@ _links() {
     "Goodreads:https://goodreads.com/enckse" \
     "Instagram:https://instagram.com/seanenck" \
     "LinkedIn:https://www.linkedin.com/in/sean-enck-22420314" \
-    "Notebook:notebook/" \
     "Resume:resume/" \
     ; do
     echo "$link"

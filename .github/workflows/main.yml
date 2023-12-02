@@ -12,7 +12,7 @@ jobs:
       image: alpine:latest
     steps:
       - name: "setup deps"
-        run: "apk add make bash mdbook git"
+        run: "apk add make bash git"
       - name: "clone"
         run: "git clone https://github.com/enckse/voidedtech.com"
       - name: "checkout"
