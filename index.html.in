@@ -1,0 +1,30 @@
+  <!doctype html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <link href="main.css" rel="stylesheet" type="text/css" />
+  <title>voidedtech.com</title>
+  </head>
+  <body>
+      <div id="site">
+          <div class="header-text">About me<br /></div>
+        <div id="main">
+<br />
+<a href="https://github.com/enckse"><div class="entry">GitHub</div></a>
+<br />
+<a href="https://goodreads.com/enckse"><div class="entry">Goodreads</div></a>
+<br />
+<a href="https://instagram.com/seanenck"><div class="entry">Instagram</div></a>
+<br />
+<a href="https://www.linkedin.com/in/sean-enck-22420314"><div class="entry">LinkedIn</div></a>
+        </div>
+        <div class="footer-text"><hr />
+            <div class="footer-small">
+                <p>Contact me here if needed: 
+                <a href="mailto:enckse@gmail.com">enckse@gmail.com</a></p>
+                Updated: {DATE}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
