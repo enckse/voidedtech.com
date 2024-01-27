@@ -1,0 +1,45 @@
+name: "deploy"
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: alpine:latest
+    steps:
+      - name: "setup deps"
+        run: "apk add make bash git"
+      - name: "clone"
+        run: "git clone https://github.com/enckse/voidedtech.com"
+      - name: "checkout"
+        run: "git -C voidedtech.com checkout $GITHUB_SHA"
+      - name: "build dist"
+        run: "cd voidedtech.com && make"
+      - name: "archive artifacts"
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: voidedtech.com/dist
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    name: publish
+    steps:
+      - name: "download artifacts"
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+      - name: "publish"
+        uses: cloudflare/pages-action@v1.5.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCT_ID }}
+          projectName: voidedtech
+          directory: dist/
