@@ -12,18 +12,14 @@ jobs:
       image: alpine:latest
     steps:
       - name: "setup deps"
-        run: "apk add make bash git"
-      - name: "clone"
-        run: "git clone https://github.com/enckse/voidedtech.com"
-      - name: "checkout"
-        run: "git -C voidedtech.com checkout $GITHUB_SHA"
+        run: "apk add make"
       - name: "build dist"
-        run: "cd voidedtech.com && make"
+        run: "make"
       - name: "archive artifacts"
         uses: actions/upload-artifact@v4
         with:
           name: dist
-          path: voidedtech.com/dist
+          path: dist
   publish:
     needs: build
     runs-on: ubuntu-latest
