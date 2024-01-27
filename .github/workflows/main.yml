@@ -11,10 +11,11 @@ jobs:
     container:
       image: alpine:latest
     steps:
+      - uses: actions/checkout@v4
       - name: "setup deps"
         run: "apk add make"
       - name: "build dist"
-        run: "ls && make"
+        run: "make"
       - name: "archive artifacts"
         uses: actions/upload-artifact@v4
         with:
