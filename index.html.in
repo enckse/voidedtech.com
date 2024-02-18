@@ -1,30 +1,82 @@
-  <!doctype html>
-  <html lang="en">
-  <head>
-  <meta charset="UTF-8">
-  <link href="main.css" rel="stylesheet" type="text/css" />
-  <title>voidedtech.com</title>
-  </head>
-  <body>
-      <div id="site">
-          <div class="header-text">About me<br /></div>
-        <div id="main">
-<br />
-<a href="https://github.com/enckse"><div class="entry">GitHub</div></a>
-<br />
-<a href="https://goodreads.com/enckse"><div class="entry">Goodreads</div></a>
-<br />
-<a href="https://instagram.com/seanenck"><div class="entry">Instagram</div></a>
-<br />
-<a href="https://www.linkedin.com/in/sean-enck-22420314"><div class="entry">LinkedIn</div></a>
-        </div>
-        <div class="footer-text"><hr />
-            <div class="footer-small">
-                <p>Contact me here if needed: 
-                <a href="mailto:enckse@gmail.com">enckse@gmail.com</a></p>
-                Updated: {DATE}
-            </div>
-        </div>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+.entry {
+    margin-left: auto;
+    margin-right: auto ;
+    border: 1px solid black;
+    border-radius: 10px;
+    border-style: none none solid solid;
+    padding: 5px;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+}
+
+#main {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+#site {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+.header-text {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: auto ;
+    margin-right: auto ;
+}
+
+.footer-text {
+    width:75%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    clear: both;
+    font-size: 12px;
+}
+
+a, a:visited, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: black;
+    font-style: italic;
+}
+</style>
+<title>voidedtech.com</title>
+</head>
+<body>
+  <div id="site">
+    <div class="header-text">About me<br /></div>
+    <div id="main">
+      <br />
+      <a href="https://github.com/enckse"><div class="entry">GitHub</div></a>
+      <br />
+      <a href="https://goodreads.com/enckse"><div class="entry">Goodreads</div></a>
+      <br />
+      <a href="https://instagram.com/seanenck"><div class="entry">Instagram</div></a>
+      <br />
+      <a href="https://www.linkedin.com/in/sean-enck-22420314"><div class="entry">LinkedIn</div></a>
     </div>
+    <div class="footer-text"><hr />
+      <div class="footer-small">
+        <p>Contact me here if needed: 
+        <a href="mailto:enckse@gmail.com">enckse@gmail.com</a></p>
+        Updated: {DATE}
+      </div>
+    </div>
+  </div>
 </body>
 </html>
